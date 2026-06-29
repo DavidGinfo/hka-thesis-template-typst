@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="595" height="842" viewBox="0 0 595 842">
+  <rect width="595" height="842" fill="#ffffff"/>
+  <rect x="40" y="40" width="515" height="762" fill="none" stroke="#b0b0b0" stroke-width="2" stroke-dasharray="10 6"/>
+  <text x="297" y="380" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#666" text-anchor="middle">Aufgabenstellung</text>
+  <text x="297" y="430" font-family="Arial, sans-serif" font-size="18" fill="#999" text-anchor="middle">Platzhalter — durch offizielle Aufgabenstellung</text>
+  <text x="297" y="460" font-family="Arial, sans-serif" font-size="18" fill="#999" text-anchor="middle">(PDF/Bild) ersetzen oder Block in thesis.typ entfernen</text>
+</svg>

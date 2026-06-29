@@ -1,0 +1,46 @@
+%YAML 1.2
+---
+name: ARM Assembly
+file_extensions:
+  - armasm
+  - asm
+  - s
+scope: source.armasm
+
+contexts:
+  main:
+    # Kommentare, GNU ARM Assembler
+    - match: '(@|//).*$'
+      scope: comment.line.armasm
+
+    # Bedingte MRS-Instruktionen:
+    # mrseq -> mrs + eq
+    # mrsne -> mrs + ne
+    - match: '\b(mrs)(eq|ne)\b'
+      captures:
+        1: keyword.instruction.armasm
+        2: keyword.condition.armasm
+
+    # Standalone Condition-Codes, z. B. eq nach ite
+    - match: '\b(eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le|al)\b'
+      scope: keyword.condition.armasm
+
+    # Normale Instruktionen
+    - match: '\b(ldr|str|stm|ldm|push|pop|mov|add|sub|cmp|tst|b|bl|bx|mrs|msr|cpsid|cpsie|isb|dsb|dmb|svc|bkpt|ite)\b'
+      scope: keyword.instruction.armasm
+
+    # Register r0-r15 sowie spezielle Cortex-M Register
+    - match: '\b(r([0-9]|1[0-5])|sp|lr|pc|xpsr|psp|msp|control|primask|basepri|faultmask)\b'
+      scope: variable.register.armasm
+
+    # Immediate-Werte und Zahlen, z. B. #4, 32, 0x10
+    - match: '#?(0x[0-9A-Fa-f]+|\b[0-9]+\b)'
+      scope: constant.numeric.armasm
+
+    # Symbole / Labels
+    - match: '\b[A-Za-z_][A-Za-z0-9_]*\b'
+      scope: entity.name.symbol.armasm
+
+    # Interpunktion und Operatoren
+    - match: '[{}=+\-,#]'
+      scope: punctuation.armasm

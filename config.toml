@@ -1,0 +1,25 @@
+# Metadaten der Arbeit — zentrale Konfiguration.
+# Wird von meta.typ via toml() eingelesen. Felder ohne zweiten Pruefer/Betreuer
+# leer lassen ("") — dann werden sie auf dem Cover ausgeblendet.
+
+is-draft = true                 # true: DRAFT-Wasserzeichen + Anmerkungen sichtbar
+is-two-sided = false            # true: doppelseitiges Layout (gerade/ungerade)
+
+author = "Vorname Nachname"
+title = "Titel der Abschlussarbeit"
+thesis-type = "Thesis" # z. B. Master-Thesis, Projektarbeit
+keywords = []
+
+reviewer-one = "Erstprüfer"
+reviewer-two = "Zweitprüfer"    # leer lassen ("") zum Entfernen
+
+advisor-one = "Erster Betreuer"
+advisor-two = "Zweiter Betreuer" # leer lassen ("") zum Entfernen
+
+department = "Informatik"
+institute = "Fakultät für Informatik und Wirtschaftsinformatik"
+university = "Hochschule Karlsruhe"
+company = "Firma"
+
+statutory-declaration-place-and-date = "Datum ausstehend"
+completion-period = "TT. Monat JJJJ – TT. Monat JJJJ"

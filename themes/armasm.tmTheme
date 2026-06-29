@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>ARM Assembly Thesis Theme</string>
+
+  <key>settings</key>
+  <array>
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key>
+        <string>#F8F9FB</string>
+        <key>foreground</key>
+        <string>#1F2328</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>
+      <string>Instruction</string>
+      <key>scope</key>
+      <string>keyword.instruction.armasm</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#028FC3</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>
+      <string>Condition Code</string>
+      <key>scope</key>
+      <string>keyword.condition.armasm</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#00A765</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>
+      <string>Register</string>
+      <key>scope</key>
+      <string>variable.register.armasm</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#EF7C00</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>
+      <string>Numeric Constant</string>
+      <key>scope</key>
+      <string>constant.numeric.armasm</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#6F42C1</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>
+      <string>Symbol</string>
+      <key>scope</key>
+      <string>entity.name.symbol.armasm</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#000000</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>
+      <string>Comment</string>
+      <key>scope</key>
+      <string>comment.line.armasm</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#6A737D</string>
+        <key>fontStyle</key>
+        <string>italic</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>name</key>
+      <string>Punctuation</string>
+      <key>scope</key>
+      <string>punctuation.armasm</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#24292E</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>

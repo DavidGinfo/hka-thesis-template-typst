@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="120" viewBox="0 0 360 120">
+  <rect x="2" y="2" width="356" height="116" rx="8" fill="#f0f0f0" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="180" y="58" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#555" text-anchor="middle">FIRMENLOGO</text>
+  <text x="180" y="82" font-family="Arial, sans-serif" font-size="13" fill="#888" text-anchor="middle">assets/firmenlogo.svg ersetzen</text>
+</svg>

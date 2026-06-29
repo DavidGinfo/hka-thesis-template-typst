@@ -1,0 +1,74 @@
+%YAML 1.2
+---
+name: C Thesis
+file_extensions:
+  - cthesis
+  - c
+  - h
+scope: source.c.thesis
+
+contexts:
+  main:
+    # Präprozessor-Direktiven, z. B. #include, #define
+    - match: '^\s*#\s*(include|define|ifdef|ifndef|endif|if|else|elif|pragma)\b'
+      scope: meta.preprocessor.c.thesis
+
+    # Einzeilige Kommentare
+    - match: '//.*$'
+      scope: comment.line.double-slash.c.thesis
+
+    # Mehrzeilige Kommentare
+    - match: '/\*'
+      scope: punctuation.definition.comment.begin.c.thesis
+      push: block-comment
+
+    # Strings
+    - match: '"'
+      scope: punctuation.definition.string.begin.c.thesis
+      push: double-quoted-string
+
+    # C-Keywords
+    - match: '\b(typedef|struct|union|enum|const|volatile|static|extern|inline|return|if|else|for|while|do|switch|case|default|break|continue|sizeof)\b'
+      scope: keyword.control.c.thesis
+
+    # Standard-C-Typen
+    - match: '\b(void|char|short|int|long|float|double|signed|unsigned|bool|uint8_t|uint16_t|uint32_t|uint64_t|int8_t|int16_t|int32_t|int64_t|size_t)\b'
+      scope: storage.type.c.thesis
+
+    # Projekt-/Thesis-spezifische Typen mit _Type am Ende
+    - match: '\b[A-Za-z_][A-Za-z0-9_]*_Type\b'
+      scope: entity.name.type.custom.c.thesis
+
+    # Struct-/Typnamen mit typischen CamelCase- oder snake_case-Bezeichnern vor Semikolon oder geschweifter Klammer
+    - match: '\b[A-Za-z_][A-Za-z0-9_]*\b(?=\s*[;{])'
+      scope: entity.name.type.c.thesis
+
+    # Register-/Feldnamen wie r0, r1, r12, lr, pc, xpsr, sp
+    - match: '\b(r([0-9]|1[0-5])|sp|lr|pc|xpsr|psp|msp)\b'
+      scope: variable.other.member.register.c.thesis
+
+    # Numerische Konstanten
+    - match: '\b(0x[0-9A-Fa-f]+|[0-9]+)\b'
+      scope: constant.numeric.c.thesis
+
+    # Allgemeine Bezeichner / Variablen / Member
+    - match: '\b[A-Za-z_][A-Za-z0-9_]*\b'
+      scope: variable.other.c.thesis
+
+    # Operatoren und Interpunktion
+    - match: '[{}()\[\];,.*&=+\-/<>!]'
+      scope: punctuation.c.thesis
+
+  block-comment:
+    - meta_scope: comment.block.c.thesis
+    - match: '\*/'
+      scope: punctuation.definition.comment.end.c.thesis
+      pop: true
+
+  double-quoted-string:
+    - meta_scope: string.quoted.double.c.thesis
+    - match: '\\.'
+      scope: constant.character.escape.c.thesis
+    - match: '"'
+      scope: punctuation.definition.string.end.c.thesis
+      pop: true

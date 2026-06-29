@@ -11,12 +11,14 @@
     top-right: 15pt,
     bottom-left: 15pt,
   ), 
-  stroke: rgb("#8a8a8a") + 1pt,
+  stroke: rgb("#ffffff") + 1pt,
   inset: 1cm, [
     #grid(
-      columns: (auto),
+      columns: (1fr, 1fr),
       rows: (auto),
-      [#image("../assets/Logo_KIT.svg", width: 115pt)],
+      align: (left + horizon, right + horizon),
+      [#image("../assets/hkalogo.svg", width: 180pt)],
+      [#image("../assets/firmenlogo.svg", width: 180pt)],
     )
 
     #pad(top: 75pt)[
@@ -30,67 +32,60 @@
     #pad(top: 45pt)[
       #align(center)[
         #block(width: 50%)[
-            #text(size: 12pt)[#thesisType #linebreak() of]
+            #text(size: 14pt)[#thesisType #linebreak() von]
           ]
       ]
     ]
 
-    #pad(top: 30pt)[
+    #pad(top: 5pt)[
       #align(center)[
         #text(font: "Liberation Sans", weight: "bold", size: 18pt)[#author]
       ]
     ]
 
-    #pad(top: 30pt)[
+    #pad(top: 60pt)[
       #align(center)[
-        #text(size: 12pt)[
-          at the Department of #department#linebreak()#institute
+        #text(size: 14pt)[
+          An der #university #linebreak()
+          #institute #linebreak()
+          In Kooperation mit #company
         ]
       ]
     ]
 
-    #pad(top: 50pt)[
+    #pad(top: 30pt)[
       #align(center,
         [#grid(
           columns: (auto, auto),
           rows: (auto),
           align: (left, left),
-          column-gutter: 5em,
+          column-gutter: 1em,
           row-gutter: 1em,
-          [#text(size: 12pt)[First Reviewer:]],
-          [#text(size: 12pt)[#reviewerOne]],
+          [#text(size: 14pt)[Erstprüfer:]],
+          [#text(size: 14pt)[#reviewerOne]],
 
-          { if reviewerTwo != none [#text(size: 12pt)[Second Reviewer:]] },
-          { if reviewerTwo != none [#text(size: 12pt)[#reviewerTwo]] },
+          { if reviewerTwo != none [#text(size: 14pt)[Zweitprüfer:]] },
+          { if reviewerTwo != none [#text(size: 14pt)[#reviewerTwo]] },
 
-          grid.cell(colspan: 2, v(1em)),
+          grid.cell(colspan: 2, v(0em)),
 
-          {if advisorTwo == none [#text(size: 12pt)[Advisor:]] else [#text(size: 12pt)[First Advisor:]]},
-          [#text(size: 12pt)[#advisorOne]],
+          {if advisorTwo == none [#text(size: 14pt)[Betreuer:]] else [#text(size: 14pt)[Erster Betreuer:]]},
+          [#text(size: 14pt)[#advisorOne]],
 
-          { if advisorTwo != none [#text(size: 12pt)[Second Advisor:]] },
-          { if advisorTwo != none [#text(size: 12pt)[#advisorTwo]] },
+          { if advisorTwo != none [#text(size: 14pt)[Zweiter Betreuer:]] },
+          { if advisorTwo != none [#text(size: 14pt)[#advisorTwo]] },
         )]
       )
     ]
     #pad(top: 40pt)[
       #align(center)[
         #grid(
-          columns: (auto, auto),
+          columns: (auto),
           rows: (auto),
-          column-gutter: 2.5em,
-          align: (left, right),
-          [Completion period:],
-          [#completionPeriod],
+          align: (center),
+          text(size: 12pt)[#completionPeriod],
         )
       ]
     ]
   ]
 )
-
-#block(inset: 5pt)[
-  #text(
-    font: "Liberation Sans",
-    size: 8pt
-  )[KIT – The Research University in the Helmholtz Association #h(1fr)] #text(font: "Liberation Sans", weight: "bold", size: 22pt)[www.kit.edu]
-]

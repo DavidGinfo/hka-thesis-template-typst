@@ -4,15 +4,15 @@
 
 #set document(title: title, author: author, keywords: keywords)
 
-// Abkürzungen (Erstverwendung = Langform + Abkürzung, danach nur Abkürzung)
-// Beispiele: durch eigene Abkürzungen ersetzen oder ergänzen.
+// Acronyms (first use = long form + abbreviation, afterwards abbreviation only)
+// Examples: replace or extend with your own acronyms.
 #init-acronyms((
   "ECU": ("Steuergerät", "Steuergeräte"),
   "CAN": ("Controller Area Network",),
   "API": ("Application Programming Interface",),
 ))
 
-// Kurzformen nur im Abkürzungsverzeichnis (Fließtext bleibt bei short/short-pl)
+// Short forms only in the list of abbreviations (body text stays with short/short-pl)
 #let abk-index-short = (:)
 
 #set text(font: "Cambria")
@@ -21,8 +21,8 @@
   background: if isDraft { rotate(24deg, text(150pt, fill: rgb("dedede66"))[*DRAFT*]) },
 )
 
-// Erste Seite: Aufgabenstellung (Platzhalter). Bei mehrseitigem PDF weitere
-// #image(...) mit page: 2, page: 3 ... ergänzen oder diesen Block entfernen.
+// First page: task assignment (placeholder). For multi-page PDFs add further
+// #image(...) with page: 2, page: 3 ... or remove this block entirely.
 #[
   #set page("a4", margin: 0pt, background: none)
   #image("assets/aufgabenstellung.svg", width: 100%, height: 100%)
@@ -31,25 +31,25 @@
 #set page("a4", margin: 30mm)
 #set text(size: 12pt)
 
-// Eigenständigkeits- und KI-Erklärung
+// Declaration of independence and AI usage
 #include "common/declaration.typ"
 #pagebreak(to: if isTwoSided { "odd" } else { none })
 
-// Titelseite
+// Cover page
 #include "common/cover.typ"
 #pagebreak()
 
-// Seitennummerierung beginnen
+// Start page numbering
 #set page(numbering: "i")
 #counter(page).update(1)
 
 #set par(justify: true)
 
-// Zusammenfassung / Abstract
-#include "content/00-Zusammenfassung.typ"
+// Abstract
+#include "content/00-abstract.typ"
 #pagebreak(to: if isTwoSided { "odd" } else { none })
 
-// Inhaltsverzeichnis
+// Table of contents
 #show outline.entry: outrageous.show-entry.with(
   ..outrageous.presets.outrageous-toc,
   fill: (none, line(length: 100%, stroke: (thickness: 1pt, dash: "loosely-dotted"))),
@@ -61,7 +61,7 @@
 #outline(title: none, indent: auto)
 #pagebreak(to: if isTwoSided { "odd" } else { none })
 
-// Abbildungsverzeichnis
+// List of figures
 #show outline.entry: outrageous.show-entry.with(
   ..outrageous.presets.outrageous-figures,
 )
@@ -73,7 +73,7 @@
 
 #pagebreak(to: if isTwoSided { "odd" } else { none })
 
-// Tabellen- und Listingverzeichnis
+// List of tables and listings
 #text(size: 21pt)[*Tabellenverzeichnis*]
 #v(0pt)
 
@@ -88,7 +88,7 @@
 
 #pagebreak(to: if isTwoSided { "odd" } else { none })
 
-// Abkürzungsverzeichnis (eigene Seite, nach Tabellen- und Listingverzeichnis)
+// List of abbreviations (own page, after list of tables and listings)
 #text(size: 21pt)[*Abkürzungsverzeichnis*]
 #v(0pt)
 
@@ -96,7 +96,7 @@
 
 #pagebreak(to: if isTwoSided { "odd" } else { none })
 
-// Beginn Hauptteil
+// Start of main body
 
 #let ht-first = state("page-first-section", [])
 #let ht-last  = state("page-last-section", [])
@@ -118,11 +118,11 @@
         #counter(heading).at(last-heading.location()).at(0) #last-heading.body
       ])
 
-      // bei einer oder mehreren Überschriften auf der Seite: kein Header
+      // one or more headings on this page: no header
       text = none
     } else {
       text = ht-last.get()
-      // keine Überschrift auf der Seite, letzte Überschrift verwenden
+      // no heading on this page, use last heading
     }
 
     #if text != none [
@@ -149,7 +149,7 @@
 #show figure.where(kind: table): set figure(supplement: [Tabelle])
 #show figure.where(kind: raw): set figure(supplement: [Listing])
 
-// Kapitelweise Nummerierung: <Kapitelnummer>.<laufende Nummer je Art>
+// Per-chapter numbering: <chapter number>.<running number per type>
 #set figure(numbering: n => {
   let chapters = counter(heading).get()
   if chapters.len() > 0 {
@@ -176,7 +176,7 @@
   )
   
   #if it.level == 1 {
-    // Zähler von Abbildungen, Tabellen und Listings je Kapitel zurücksetzen
+    // Reset figure, table and listing counters per chapter
     counter(figure.where(kind: image)).update(0)
     counter(figure.where(kind: table)).update(0)
     counter(figure.where(kind: raw)).update(0)
@@ -187,12 +187,12 @@
   #if it.level == 1 {v(0.75em)} else if it.level == 2 {v(0.5em)} else {v(0.25em)}
 ]
 
-#include "content/01-Einleitung.typ"
-#include "content/02-Grundlagen.typ"
-#include "content/03-Analyse-und-Entwurf.typ"
-#include "content/04-Implementierung.typ"
-#include "content/05-Evaluation.typ"
-#include "content/06-Fazit-und-Ausblick.typ"
+#include "content/01-introduction.typ"
+#include "content/02-foundations.typ"
+#include "content/03-analysis-and-design.typ"
+#include "content/04-implementation.typ"
+#include "content/05-evaluation.typ"
+#include "content/06-conclusion-and-outlook.typ"
 
 #pagebreak(to: if isTwoSided { "odd" } else { none })
 #bibliography("bibliography.bib", title: "Literaturverzeichnis", style: "ieee", full: false)

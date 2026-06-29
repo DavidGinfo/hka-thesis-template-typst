@@ -1,4 +1,4 @@
-// Akademische Tabelle (booktabs-ähnlich, volle Textbreite, kein Blocksatz in Zellen)
+// Academic table (booktabs-style, full text width, no justification in cells)
 #let tab-h(body) = table.cell(
   fill: luma(248),
   inset: (x: 6pt, y: 5pt),
@@ -18,7 +18,7 @@
   ]
 ]
 
-// Verweis auf eine Anforderung oder Randbedingung. Springt zur zugehörigen
-// Tabellenzeile (FR/C) beziehungsweise zum Eintrag (NFR). Der sichtbare Text
-// entspricht der Kennung, zum Beispiel #req("FR-1").
+// Reference to a requirement or constraint. Jumps to the corresponding
+// table row (FR/C) or entry (NFR). The visible text
+// matches the identifier, e.g. #req("FR-1").
 #let req(id) = link(label(lower(id)))[#id]

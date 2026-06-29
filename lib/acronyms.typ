@@ -1,7 +1,7 @@
-// Abkürzungsverzeichnis und Akronym-Helfer.
+// List of abbreviations and acronym helpers.
 #import "@preview/acrostiche:0.7.0": acr, acrpl, display-def, display-short, mark-acr-used, _acronyms, _acrostiche-index
 
-// Erstnennung mit kursiver Langform im Fließtext; im Abkürzungsverzeichnis bleibt die Langform normal.
+// First mention with italic long form in body text; long form stays upright in the list of abbreviations.
 #let acr-emph(acronym, plural: false) = {
   context {
     let acronyms = _acronyms.get()
@@ -20,9 +20,9 @@
 
 #let acrpl-emph(acronym) = acr-emph(acronym, plural: true)
 
-// Nur Kurzform, ohne Erstnennung und ohne Markierung als „verwendet“.
-// Für Abbildungs-, Tabellen- und Listing-Beschriftungen, damit die Erstnennung
-// im Fließtext bleibt (Verzeichnisse werden vor dem Haupttext ausgewertet).
+// Short form only, without first-use expansion and without marking as "used".
+// For figure, table, and listing captions so that the first mention
+// remains in body text (lists are evaluated before the main text).
 #let acr-cap(acronym, plural: false) = {
   context {
     let acronyms = _acronyms.get()
@@ -40,8 +40,8 @@
 
 #let acrpl-cap(acronym) = acr-cap(acronym, plural: true)
 
-// Zusätzliche Kasusformen für deutsche Pluralendungen (z. B. Dativ: Steuergeräten).
-// Beispiel: ergänze hier eigene Akronyme mit abweichendem Dativ-Plural.
+// Additional case forms for German plural endings (e.g. dative: Steuergeräten).
+// Example: add your own acronyms with non-standard dative plural here.
 #let acr-case-forms = (
   "ECU": (
     long-pl-dat: "Steuergeräten",
@@ -89,8 +89,8 @@
   mark-acr-used(acronym)
 }
 
-// Abkürzungsverzeichnis mit optional abweichender Kurzform in der Index-Spalte
-// (z. B. "E/E" statt "E/E-Architektur", während der Fließtext unverändert bleibt).
+// List of abbreviations with optional custom short form in the index column
+// (e.g. "E/E" instead of "E/E-Architektur", while body text stays unchanged).
 #let print-abk-verzeichnis(
   index-short: (:),
   title: "",

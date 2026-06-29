@@ -1,5 +1,5 @@
-// Grafik-Platzhalter (ersetzen später durch #figure(image(...), ...))
-// Nutzung: #fig-platzhalter-mittel(caption: [Kurztext], label: <meine-abb>)[Was die Grafik zeigen soll]
+// Figure placeholders (replace later with #figure(image(...), ...))
+// Usage: #fig-platzhalter-mittel(caption: [Short caption], label: <my-fig>)[What the figure should show]
 
 #let _fig-platzhalter-box(width, height, body) = box(
   width: width,

@@ -1,7 +1,7 @@
-// Code-Listings mit Syntaxhervorhebung. Die Sublime-Syntax- und tmTheme-Dateien
-// liegen in diesem Ordner; die Pfade sind relativ zu themes/.
+// Code listings with syntax highlighting. The Sublime syntax and tmTheme files
+// are located in this folder; paths are relative to themes/.
 
-// ARM-Assembler-Listing mit Zeilennummern und eigenem Syntax-Highlighting.
+// ARM assembly listing with line numbers and custom syntax highlighting.
 #let asm-code(code) = raw(
   code,
   lang: "armasm",
@@ -54,7 +54,7 @@
   )
 ]
 
-// C-Listing mit Zeilennummern und eigenem Syntax-Highlighting.
+// C listing with line numbers and custom syntax highlighting.
 #let c-code(code) = raw(
   code,
   lang: "cthesis",

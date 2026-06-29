@@ -1,12 +1,12 @@
-// Sammelmodul: Metadaten (aus config.toml) + alle Helfer.
-// Inhaltsdateien importieren weiterhin nur aus dieser Datei.
+// Aggregator module: metadata (from config.toml) + all helpers.
+// Content files should only import from this file.
 
 #import "lib/acronyms.typ": *
 #import "lib/figures.typ": *
 #import "lib/tables.typ": *
 #import "themes/code.typ": *
 
-// Metadaten zentral aus config.toml lesen.
+// Read metadata centrally from config.toml.
 #let _cfg = toml("config.toml")
 #let _opt(value) = if value == none or value == "" { none } else { value }
 
@@ -30,7 +30,7 @@
 #let statutoryDeclarationPlaceAndDate = _cfg.statutory-declaration-place-and-date
 #let completionPeriod = _cfg.completion-period
 
-// Anmerkungsbox (nur im Draft sichtbar).
+// Note box (only visible in draft mode).
 #let note(body) = if isDraft {
   block(
     fill: yellow.lighten(60%),

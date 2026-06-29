@@ -1,52 +1,52 @@
 # HKA-Thesis-Template (Typst)
 
-Typst-Template für Abschlussarbeiten an der Hochschule Karlsruhe (HKA), optional in Kooperation mit einem Unternehmen.
+Typst template for bachelor/master theses at Hochschule Karlsruhe (HKA), optionally in cooperation with a company.
 
-## Voraussetzungen
+## Requirements
 
-- Typst ab Version 0.12: https://github.com/typst/typst (oder VS-Code-Erweiterung Tinymist)
-- Schriften: Cambria, Arial, Liberation Sans (sonst werden Ersatzschriften genutzt)
-- Internetverbindung beim ersten Build für die Pakete `acrostiche` und `outrageous`
+- Typst version 0.12 or later: https://github.com/typst/typst (or the VS Code extension Tinymist)
+- Fonts: Cambria, Arial, Liberation Sans (fallback fonts are used if unavailable)
+- Internet connection on first build to download the `acrostiche` and `outrageous` packages
 
-## Verzeichnisstruktur
+## Directory structure
 
-- `thesis.typ` - Einstiegspunkt: Reihenfolge, Verzeichnisse, Layout, Akronyme
-- `config.toml` - Metadaten (Autor, Titel, Prüfer, Betreuer, Modi)
-- `meta.typ` - liest config.toml und bündelt alle Helfer
-- `typst.toml` - Paket-Manifest
-- `bibliography.bib` - Beispiel-Literatur (ersetzen)
-- `lib/` - Helfer: acronyms.typ, figures.typ, tables.typ
-- `themes/` - Syntaxhervorhebung für C und ARM-Assembler
-- `common/` - Titelseite (cover.typ) und Erklärungsseite (declaration.typ)
-- `content/` - Zusammenfassung und 6 Kapitel mit Lorem-Ipsum-Platzhaltern
+- `thesis.typ` - entry point: chapter order, lists, layout, acronyms
+- `config.toml` - metadata (author, title, reviewers, advisors, modes)
+- `meta.typ` - reads config.toml and bundles all helpers
+- `typst.toml` - package manifest
+- `bibliography.bib` - example bibliography (replace with your own)
+- `lib/` - helpers: acronyms.typ, figures.typ, tables.typ
+- `themes/` - syntax highlighting for C and ARM assembly
+- `common/` - cover page (cover.typ) and declarations (declaration.typ)
+- `content/` - abstract and 6 chapters with Lorem Ipsum placeholders
 - `assets/` - hkalogo.svg, firmenlogo.svg, aufgabenstellung.svg
 
-## Kompilieren
+## Building
 
 ```powershell
-typst compile thesis.typ   # erzeugt thesis.pdf
-typst watch thesis.typ     # baut bei jeder Änderung neu
+typst compile thesis.typ   # produces thesis.pdf
+typst watch thesis.typ     # rebuilds on every change
 ```
 
-## Anpassen
+## Customization
 
-1. Metadaten in `config.toml` setzen (`reviewer-two` und `advisor-two` leer lassen zum Ausblenden)
-2. Logos in `assets/` ersetzen
-3. Aufgabenstellung in `thesis.typ` eintragen oder den Block entfernen
-4. Erklärungen in `common/declaration.typ` an die eigene KI-Nutzung anpassen
-5. Kapitel in `content/` schreiben
-6. Abkürzungen in `thesis.typ` in `init-acronyms` eintragen
-7. Quellen in `bibliography.bib` pflegen und mit `@schluessel` zitieren
+1. Set metadata in `config.toml` (leave `reviewer-two` and `advisor-two` empty to hide them)
+2. Replace logos in `assets/`
+3. Add your task assignment in `thesis.typ` or remove that block entirely
+4. Fill in `common/declaration.typ` with your actual AI usage and acknowledgements
+5. Write your chapters in `content/`
+6. Register acronyms in `thesis.typ` via `init-acronyms`
+7. Add sources to `bibliography.bib` and cite with `@key`
 
-## Modi (config.toml)
+## Modes (config.toml)
 
-- `isDraft`: DRAFT-Wasserzeichen und `#note`-Anmerkungen werden angezeigt
-- `isTwoSided`: doppelseitiges Layout, Kapitel beginnen auf ungeraden Seiten
+- `isDraft`: shows DRAFT watermark and `#note` annotations
+- `isTwoSided`: two-sided layout, chapters start on odd pages
 
-## Helfer
+## Helpers
 
-- `fig-platzhalter-klein/mittel/gross`: Grafik-Platzhalter
-- `tab-h` / `tab-d`: Tabellenzellen für akademische Tabellen
-- `c-listing` / `asm-listing`: Code mit Zeilennummern
-- `req("FR-1")`: Querverweis auf Anforderung
-- `acr-emph` / `acrpl-emph`: Akronym-Erstnennung; `acr-cap`: Kurzform für Beschriftungen
+- `fig-platzhalter-klein/mittel/gross`: figure placeholders
+- `tab-h` / `tab-d`: table cells for academic tables
+- `c-listing` / `asm-listing`: code with line numbers
+- `req("FR-1")`: cross-reference to a requirement
+- `acr-emph` / `acrpl-emph`: acronym first mention; `acr-cap`: short form for captions

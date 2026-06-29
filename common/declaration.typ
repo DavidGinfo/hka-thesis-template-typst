@@ -11,7 +11,7 @@
 #line(length: 100%, stroke: (thickness: 0.5pt))
 #v(0.6em)
 
-// PLATZHALTER: Beschreibung der KI-Nutzung an die eigene Arbeit anpassen.
+// PLACEHOLDER: Describe AI usage for your own thesis here.
 Im Rahmen der Erstellung dieser Arbeit wurden generative KI-Werkzeuge in dem unten beschriebenen Umfang eingesetzt. Beschreiben Sie hier konkret, wofür und in welchem Umfang KI verwendet wurde sowie welche Inhalte ausschließlich eigenständig erarbeitet wurden.
 
 #v(0.8em)

@@ -1,7 +1,11 @@
 #import "../meta.typ": *
 
 #set page(
-  margin: 30pt,
+  margin: if isTwoSided {
+    (inside: 30pt + bindingOffset / 2, outside: 30pt - bindingOffset / 2, y: 30pt)
+  } else {
+    30pt
+  },
 )
 
 #rect(

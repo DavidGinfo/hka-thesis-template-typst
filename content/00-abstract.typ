@@ -1,4 +1,4 @@
-#import "../meta.typ": note, fig-platzhalter-gross, fig-platzhalter-mittel, fig-platzhalter-klein, tab-h, tab-d, acr-emph, acrpl-emph
+#import "../meta.typ": note, fig-platzhalter-gross, fig-platzhalter-mittel, fig-platzhalter-klein, tab-h, tab-d, acr-emph, acrpl-emph, openright
 #import "@preview/acrostiche:0.7.0": acr, acrpl
 
 #[
@@ -15,7 +15,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Diese Zusammenfassung fasst Motivation, Ziel, Vorgehen und Ergebnis der Arbeit in wenigen Absätzen zusammen.
 
-#pagebreak()
+#openright()
 
 #[
   #v(1.5cm)
